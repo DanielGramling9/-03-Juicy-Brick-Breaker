@@ -4,7 +4,7 @@ var min_speed = 100.0
 var max_speed = 600.0
 var speed_multiplier = 1.0
 var accelerate = false
-
+var decay = 0.04
 var released = true
 
 var initial_velocity = Vector2.ZERO
@@ -24,6 +24,7 @@ func _on_Ball_body_entered(body):
 	if body.has_method("hit"):
 		body.hit(self)
 		accelerate = true	
+	$Highlight.modulate.a = 1.0
 
 func _input(event):
 	if not released and event.is_action_pressed("release"):
@@ -35,7 +36,8 @@ func _integrate_forces(state):
 		var paddle = get_node_or_null("/root/Game/Paddle_Container/Paddle")
 		if paddle != null:
 			state.transform.origin = Vector2(paddle.position.x + paddle.width, paddle.position.y - 30)	
-
+	if $Highlight.modulate.a > 0:
+		$Highlight.modulate.a -= decay
 	if position.y > Global.VP.y + 100:
 		die()
 	if accelerate:
@@ -48,15 +50,15 @@ func _integrate_forces(state):
 	if state.linear_velocity.length() > max_speed * speed_multiplier:
 		state.linear_velocity = state.linear_velocity.normalized() * max_speed * speed_multiplier
 		
-	var Comet_Container = get_node_or_null("/root/Game/Comet_Container")
-	if Comet_Container != null:
-		var c = $ColorRect.duplicate()
-		c.rect_position= global_position
-		Comet_Container.add_child(c)
+	#var Comet_Container = get_node_or_null("/root/Game/Comet_Container")
+	#if Comet_Container != null:
+	#	var c = $Highlight.duplicate()
+	#	c.rect_position= global_position
+	#	Comet_Container.add_child(c)
 		
 
 func change_size(s):
-	$ColorRect.rect_scale = s
+	$Highlight.rect_scale = s
 	$CollisionShape2D.scale = s
 
 func change_speed(s):
