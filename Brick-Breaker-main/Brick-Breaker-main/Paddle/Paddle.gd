@@ -25,6 +25,7 @@ func _input(event):
 
 func hit(_ball):
 	$Highlight.modulate.a = 1.0
+	$Confetti.emitting = true
 	$Tween.interpolate_property($ColorRect, "rect_position:y", 30,0,0.5,Tween.TRANS_BOUNCE, Tween.EASE_IN)
 	$Tween.start()
 	pass
