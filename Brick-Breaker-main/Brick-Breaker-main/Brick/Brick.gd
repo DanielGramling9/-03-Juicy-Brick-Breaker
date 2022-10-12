@@ -15,6 +15,7 @@ func _physics_process(_delta):
 		queue_free()
 
 func hit(_ball):
+	
 	die()
 
 func die():

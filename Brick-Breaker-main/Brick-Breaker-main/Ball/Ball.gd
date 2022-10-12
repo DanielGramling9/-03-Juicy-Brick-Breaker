@@ -47,6 +47,13 @@ func _integrate_forces(state):
 		state.linear_velocity.y = sign(state.linear_velocity.y) * min_speed * speed_multiplier
 	if state.linear_velocity.length() > max_speed * speed_multiplier:
 		state.linear_velocity = state.linear_velocity.normalized() * max_speed * speed_multiplier
+		
+	var Comet_Container = get_node_or_null("/root/Game/Comet_Container")
+	if Comet_Container != null:
+		var c = $ColorRect.duplicate()
+		c.rect_position= global_position
+		Comet_Container.add_child(c)
+		
 
 func change_size(s):
 	$ColorRect.rect_scale = s

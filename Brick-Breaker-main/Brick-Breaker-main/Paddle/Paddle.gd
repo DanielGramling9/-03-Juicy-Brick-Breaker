@@ -22,6 +22,8 @@ func _input(event):
 		target.x += event.relative.x
 
 func hit(_ball):
+	$Tween.interpolate_property($ColorRect, "rect_position:y", 30,0,0.5,Tween.TRANS_BOUNCE, Tween.EASE_IN)
+	$Tween.start()
 	pass
 
 func powerup(payload):
