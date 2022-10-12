@@ -11,7 +11,10 @@ An copy of breakout but with features meant to make it more juicy.
 Description
 An copy of breakout but with features meant to make it more juicy.
 ## Implementation
-Which features you included
+- Added sound effects
+-Added music
+-Added particles when an element is hit
+-Make the elements fall off the screen when they are hit
 
 ## References
 Assets and code based on the following links
