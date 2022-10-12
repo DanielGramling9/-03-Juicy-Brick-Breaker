@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Breakout"
+config/name="-03-Juicy-Brick-Breaker Project"
 run/main_scene="res://UI/Main_Menu.tscn"
 config/icon="res://icon.png"
 
