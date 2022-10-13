@@ -4,6 +4,7 @@ var min_speed = 100.0
 var max_speed = 600.0
 var speed_multiplier = 1.0
 var accelerate = false
+var decay = 0.04
 
 var released = true
 
@@ -24,6 +25,7 @@ func _on_Ball_body_entered(body):
 	if body.has_method("hit"):
 		body.hit(self)
 		accelerate = true	
+		$Highlight.modulate.a = 1.0
 
 func _input(event):
 	if not released and event.is_action_pressed("release"):
@@ -31,6 +33,8 @@ func _input(event):
 		released = true
 
 func _integrate_forces(state):
+	if $Highlight.modulate.a > 0:
+		$Highlight.modulate.a -= decay
 	if not released:
 		var paddle = get_node_or_null("/root/Game/Paddle_Container/Paddle")
 		if paddle != null:

@@ -16,13 +16,15 @@ func _physics_process(_delta):
 	position = target
 	for c in $Powerups.get_children():
 		c.payload()
+	if $Highlight.modulate.a > 0:
+		$Highlight.modulate.a -= decay
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		target.x += event.relative.x
 
 func hit(_ball):
-	
+	$Highlight.modulate.a = 1.0
 	var paddle_sound = get_node_or_null("/root/Game/Paddle_Sound")
 	if paddle_sound != null:
 		paddle_sound.play()

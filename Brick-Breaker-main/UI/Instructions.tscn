@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/Instructions.gd" type="Script" id=1]
+[ext_resource path="res://UI/Title.tres" type="Theme" id=2]
 
 [node name="Instructions" type="Control"]
 anchor_right = 1.0
@@ -16,6 +17,7 @@ color = Color( 0, 0, 0, 0.752941 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -440.0
+theme = ExtResource( 2 )
 align = 1
 valign = 2
 
@@ -23,6 +25,7 @@ valign = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 400.0
+theme = ExtResource( 2 )
 align = 1
 
 [node name="Starting" type="Label" parent="."]
@@ -31,6 +34,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -200.0
+theme = ExtResource( 2 )
 align = 1
 
 [node name="Timer" type="Timer" parent="."]
