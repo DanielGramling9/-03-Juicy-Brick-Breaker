@@ -17,3 +17,5 @@ position = Vector2( 50, 10 )
 shape = SubResource( 1 )
 
 [node name="Powerups" type="Node2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]

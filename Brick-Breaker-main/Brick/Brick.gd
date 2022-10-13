@@ -15,6 +15,9 @@ func _physics_process(_delta):
 		queue_free()
 
 func hit(_ball):
+	var Brick_sound = get_node_or_null("/root/Game/Brick_Sound")
+	if Brick_sound != null:
+		Brick_sound.play()
 	die()
 
 func die():
@@ -31,4 +34,3 @@ func die():
 			var Powerup = load("res://Powerups/Powerup.tscn")
 			var powerup = Powerup.instance()
 			powerup.position = position
-			Powerup_Container.call_deferred("add_child", powerup)
