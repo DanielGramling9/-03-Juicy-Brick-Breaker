@@ -24,8 +24,10 @@ func _input(event):
 		target.x += event.relative.x
 
 func hit(_ball):
-	$Confetti.emitting = true
-	$Highlight.modulate.a = 1.0
+	#$Tween.interpolate_property($Sprite, "Get_Rect(0,y)", 30,0,0,Tween.TRANS_BOUNCE,Tween.EASE_IN)
+	#$Tween.start()
+	#$Confetti.emitting = true
+	#$Highlight.modulate.a = 1.0
 	var paddle_sound = get_node_or_null("/root/Game/Paddle_Sound")
 	if paddle_sound != null:
 		paddle_sound.play()

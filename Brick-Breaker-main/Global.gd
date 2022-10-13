@@ -30,6 +30,7 @@ func _physics_process(_delta):
 		update_fever(-fever_decay)
 	else:
 		feverish = false
+	
 		
 
 func _input(event):

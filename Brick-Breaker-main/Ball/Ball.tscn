@@ -29,4 +29,6 @@ texture = ExtResource( 2 )
 modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 3 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]
